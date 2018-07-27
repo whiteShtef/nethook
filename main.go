@@ -36,6 +36,7 @@ func Ping() {
 	}
 	if resp.StatusCode != 200 {
 		glog.Error("Server returned non 200 status code:", resp)
+		return
 	}
 	glog.Info("Report successful")
 
