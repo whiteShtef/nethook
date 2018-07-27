@@ -73,9 +73,9 @@ func main() {
 		glog.Fatal(http.ListenAndServe(":"+strconv.Itoa(serverPort), router))
 	} else {
 		glog.Info("Starting in client mode.")
-		glog.Info("Reporting name ", instanceName, " to ", destination, " every 10 seconds.")
+		glog.Info("Reporting name ", instanceName, " to ", destination, " every minute.")
 		sched := clockwork.NewScheduler()
-		sched.Schedule().Every(10).Seconds().Do(Ping)
+		sched.Schedule().Every().Minute().Do(Ping)
 		sched.Run()
 	}
 }
